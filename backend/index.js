@@ -1,9 +1,28 @@
 import express from "express";
 import axios from "axios";
 import "dotenv/config";
+import path from "path";
+
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 4000;
+app.use(express.static('public'));
+
+// Basic dolgok
+
+app.get("/", (req, res) => {
+    // A path.join segít megtalálni a fájlt a projekt mappájában
+    res.sendFile(path.join(__dirname, "./index/index.html"));
+});
+
+app.get("/profile", (req, res) => {
+    res.sendFile(path.join(__dirname, "./app/app.html"));
+});
 
 /**
  * Step A: Redirect user to Epic login
@@ -23,6 +42,7 @@ app.get("/auth/epic/login", (req, res) => {
         `?client_id=${clientId}` +
         "&response_type=code" +
         "&scope=basic_profile" +
+        "&prompt=login" +
         `&redirect_uri=${encodeURIComponent(redirectUri)}`;
 
     res.redirect(authUrl);
@@ -60,8 +80,27 @@ app.get("/auth/epic/callback", async (req, res) => {
         }
     );
 
-    // For now, just return the token
-    res.json(tokenResponse.data);
+    const { access_token, account_id, preferred_username } = tokenResponse.data;
+
+        console.log("Sikeres token lekérés!");
+        console.log("AccountId:", tokenResponse.data.account_id);
+        console.log("token:", tokenResponse.data.access_token);
+
+const userInfoResponse = await axios.get(
+    "https://api.epicgames.dev/epic/oauth/v1/userInfo",
+    {
+        headers: { 
+            "Authorization": `Bearer ${access_token}` 
+        }
+    }
+);
+
+    const username = userInfoResponse.data.preferred_username;
+    const accountId = userInfoResponse.data.sub;
+    
+    res.redirect(`../../profile?username=${encodeURIComponent(username)}&accountId=${accountId}`);
+
+    
     } catch (err) {
     console.error("Epic token error:");
     console.error(err.response?.status, err.response?.data);
@@ -70,6 +109,12 @@ app.get("/auth/epic/callback", async (req, res) => {
         details: err.response?.data || err.message,
     });
     }
+});
+
+app.get("/full-logout", (req, res) => {
+    // Az Epic logout URL-je
+    const epicLogoutUrl = "https://www.epicgames.com/id/logout?redirect_uri=" + encodeURIComponent("http://localhost:4000");
+    res.redirect(epicLogoutUrl);
 });
 
 
