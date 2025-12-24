@@ -8,50 +8,53 @@ DROP TABLE IF EXISTS Item;
 DROP TABLE IF EXISTS Session;
 DROP TABLE IF EXISTS Player;
 
--- akarunk soft delete-t?
+-- Akarunk soft delete - et?
 CREATE TABLE Player (
-    Epic_Account_Id PRIMARY KEY,
+    Epic_Account_Id VARCHAR(50) PRIMARY KEY,
     username VARCHAR(50) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
-CREATE TABLE Session_Connection (
-    Id PRIMARY KEY AUTO_INCREMENT,
-    Player_Epic_Account_Id VARCHAR(50) REFERENCES Player(Epic_Account_Id),
-    Session_Id VARCHAR(50) REFERENCES Session(Id),
-    Character_Id INTEGER NOT NULL
-);
+) ENGINE=InnoDB;
 
 CREATE TABLE Session (
-    Id PRIMARY KEY AUTO_INCREMENT,
+    Id INTEGER PRIMARY KEY AUTO_INCREMENT,
     started_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     Name VARCHAR(50) NOT NULL,
     Session_Code INTEGER NOT NULL,
     SaveFile MEDIUMBLOB NOT NULL,
     LastUpdated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-);
-
-CREATE TABLE SessionItem (
-    Id PRIMARY KEY AUTO_INCREMENT,
-    Session_Id VARCHAR(50) REFERENCES Session(Id),
-    Item_Id VARCHAR(50) REFERENCES Item(Id),
-    Amount INTEGER NOT NULL
-);
+) ENGINE=InnoDB;
 
 CREATE TABLE Item (
-    Id PRIMARY KEY,
+    Id INTEGER PRIMARY KEY AUTO_INCREMENT,
     Name VARCHAR(100) NOT NULL,
     Rarity VARCHAR(50) NOT NULL
-);
+) ENGINE=InnoDB;
 
--- Mi legyen a rewardokkal?
+CREATE TABLE Session_Connection (
+    Id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    Player_Epic_Account_Id VARCHAR(50),
+    Session_Id INTEGER, 
+    Character_Id INTEGER NOT NULL,
+    FOREIGN KEY (Player_Epic_Account_Id) REFERENCES Player(Epic_Account_Id) ON DELETE CASCADE,
+    FOREIGN KEY (Session_Id) REFERENCES Session(Id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+CREATE TABLE SessionItem (
+    Id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    Session_Id INTEGER, 
+    Item_Id INTEGER,
+    Amount INTEGER NOT NULL,
+    FOREIGN KEY (Session_Id) REFERENCES Session(Id) ON DELETE CASCADE,
+    FOREIGN KEY (Item_Id) REFERENCES Item(Id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
 CREATE TABLE GlobalAchievements (
-    Id PRIMARY KEY AUTO_INCREMENT,
+    Id INTEGER PRIMARY KEY AUTO_INCREMENT,
     Name VARCHAR(100) NOT NULL,
     Description VARCHAR(255) NOT NULL,
-    Current_Value INTEGER NOT NULL,
+    Current_Value INTEGER NOT NULL DEFAULT 0,
     Target_Value INTEGER NOT NULL,
-    Rewards VARCHAR(255) NOT NULL,
-    Achieved_At TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Rewards VARCHAR(255) NOT NULL, -- Itt tárolhatunk JSON stringet is
+    Achieved_At TIMESTAMP NULL DEFAULT NULL,
     Notes VARCHAR(255)
-);
+) ENGINE=InnoDB;
