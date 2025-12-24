@@ -1,0 +1,54 @@
+DROP TABLE IF EXISTS SessionItem;
+DROP TABLE IF EXISTS Session_Connection;
+DROP TABLE IF EXISTS GlobalAchievements;
+DROP TABLE IF EXISTS Item;
+DROP TABLE IF EXISTS Session;
+DROP TABLE IF EXISTS Player;
+
+-- akarunk soft delete-t?
+CREATE TABLE Player (
+    Epic_Account_Id PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE Session_Connection (
+    Id PRIMARY KEY AUTO_INCREMENT,
+    Player_Epic_Account_Id VARCHAR(50) REFERENCES Player(Epic_Account_Id),
+    Session_Id VARCHAR(50) REFERENCES Session(Id),
+    Character_Id INTEGER NOT NULL
+);
+
+CREATE TABLE Session (
+    Id PRIMARY KEY AUTO_INCREMENT,
+    started_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Name VARCHAR(50) NOT NULL,
+    Session_Code INTEGER NOT NULL,
+    SaveFile MEDIUMBLOB NOT NULL,
+    LastUpdated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE SessionItem (
+    Id PRIMARY KEY AUTO_INCREMENT,
+    Session_Id VARCHAR(50) REFERENCES Session(Id),
+    Item_Id VARCHAR(50) REFERENCES Item(Id),
+    Amount INTEGER NOT NULL
+);
+
+CREATE TABLE Item (
+    Id PRIMARY KEY,
+    Name VARCHAR(100) NOT NULL,
+    Rarity VARCHAR(50) NOT NULL
+);
+
+-- Mi legyen a rewardokkal?
+CREATE TABLE GlobalAchievements (
+    Id PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(100) NOT NULL,
+    Description VARCHAR(255) NOT NULL,
+    Current_Value INTEGER NOT NULL,
+    Target_Value INTEGER NOT NULL,
+    Rewards VARCHAR(255) NOT NULL,
+    Achieved_At TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Notes VARCHAR(255)
+);
