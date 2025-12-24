@@ -1,0 +1,19 @@
+<h1 id="welcome">Betöltés...</h1>
+<p>Account Id: <span id="puid-display"></span></p>
+
+<button onclick="handleLogout()">Logout</button>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const username = params.get('username');
+    const accountId = params.get('accountId');
+
+    if (username && accountId) {
+        document.getElementById('welcome').innerText = `Szia, ${username}!`;
+        document.getElementById('puid-display').innerText = accountId;
+    }
+
+    function handleLogout() {
+        window.location.href = "/full-logout";
+    }
+</script>
