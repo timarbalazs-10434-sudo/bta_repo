@@ -148,6 +148,7 @@ app.get("/api/me", (req, res) => {
 
 //ez naon fontos ez
 app.use(express.json());
+app.use(cors());
 
 import playerRoutes from "./src/routes/PlayerRoutes.js";
 app.use("/api/player", playerRoutes);
