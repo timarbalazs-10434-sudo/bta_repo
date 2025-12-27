@@ -1,0 +1,67 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model globalachievements {
+  Id            Int       @id @default(autoincrement())
+  Name          String    @db.VarChar(100)
+  Description   String    @db.VarChar(255)
+  Current_Value Int       @default(0)
+  Target_Value  Int
+  Rewards       String    @db.VarChar(255)
+  Achieved_At   DateTime? @db.Timestamp(0)
+  Notes         String?   @db.VarChar(255)
+}
+
+model item {
+  Id          Int           @id @default(autoincrement())
+  Name        String        @db.VarChar(100)
+  Rarity      String        @db.VarChar(50)
+  sessionitem sessionitem[]
+}
+
+model player {
+  Epic_Account_Id    String               @id @db.VarChar(50)
+  username           String               @db.VarChar(50)
+  created_at         DateTime             @default(now()) @db.Timestamp(0)
+  session_connection session_connection[]
+}
+
+model session {
+  Id                 Int                  @id @default(autoincrement())
+  started_at         DateTime             @default(now()) @db.Timestamp(0)
+  Name               String               @db.VarChar(50)
+  Session_Code       Int
+  SaveFile           Bytes                @db.MediumBlob
+  LastUpdated        DateTime             @default(now()) @db.Timestamp(0)
+  session_connection session_connection[]
+  sessionitem        sessionitem[]
+}
+
+model session_connection {
+  Id                     Int      @id @default(autoincrement())
+  Player_Epic_Account_Id String?  @db.VarChar(50)
+  Session_Id             Int?
+  Character_Id           Int
+  player                 player?  @relation(fields: [Player_Epic_Account_Id], references: [Epic_Account_Id], onDelete: Cascade, onUpdate: Restrict, map: "session_connection_ibfk_1")
+  session                session? @relation(fields: [Session_Id], references: [Id], onDelete: Cascade, onUpdate: Restrict, map: "session_connection_ibfk_2")
+
+  @@index([Player_Epic_Account_Id], map: "Player_Epic_Account_Id")
+  @@index([Session_Id], map: "Session_Id")
+}
+
+model sessionitem {
+  Id         Int      @id @default(autoincrement())
+  Session_Id Int?
+  Item_Id    Int?
+  Amount     Int
+  session    session? @relation(fields: [Session_Id], references: [Id], onDelete: Cascade, onUpdate: Restrict, map: "sessionitem_ibfk_1")
+  item       item?    @relation(fields: [Item_Id], references: [Id], onDelete: Cascade, onUpdate: Restrict, map: "sessionitem_ibfk_2")
+
+  @@index([Item_Id], map: "Item_Id")
+  @@index([Session_Id], map: "Session_Id")
+}
