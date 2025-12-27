@@ -37,6 +37,14 @@
 			"Name": "Windows_Native_Toolkit",
 			"Enabled": true,
 			"MarketplaceURL": "https://www.fab.com/listings/db1cb6ed-ac7e-4408-a901-e45d6694cb0b"
+		},
+		{
+			"Name": "Fab",
+			"Enabled": false
+		},
+		{
+			"Name": "Bridge",
+			"Enabled": false
 		}
 	]
 }

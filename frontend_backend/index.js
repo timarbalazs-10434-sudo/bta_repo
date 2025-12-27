@@ -20,14 +20,21 @@ app.use(cors({ origin: 'http://localhost:4200', credentials: true }));
 
 // Basic dolgok
 
-app.get("/", (req, res) => {
-    // A path.join segít megtalálni a fájlt a projekt mappájában
-    res.sendFile(path.join(__dirname, "./index/index.html"));
-});
+//app.get("/", (req, res) => {
+//    // A path.join segít megtalálni a fájlt a projekt mappájában
+//    res.sendFile(path.join(__dirname, "./index/index.html"));
+//});
 
 app.get("/profile", (req, res) => {
     res.sendFile(path.join(__dirname, "./app/app.html"));
 });
+
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+});
+
+// Epic Authentication
+// -------------------------------------------------------
 
 /**
  * Step A: Redirect user to Epic login
@@ -136,6 +143,4 @@ app.get("/api/me", (req, res) => {
     }
 });
 
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});
+
