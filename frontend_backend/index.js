@@ -143,7 +143,11 @@ app.get("/api/me", (req, res) => {
     }
 });
 
-// Prisma setup
+// Prisma végpontok
 // -------------------------------------------------------
 
+//ez naon fontos ez
+app.use(express.json());
 
+import playerRoutes from "./src/routes/PlayerRoutes.js";
+app.use("/api/player", playerRoutes);
