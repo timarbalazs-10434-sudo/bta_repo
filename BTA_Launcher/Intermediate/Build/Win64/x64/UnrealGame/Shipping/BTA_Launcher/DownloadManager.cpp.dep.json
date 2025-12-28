@@ -1,0 +1,14 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\timar\\documents\\unreal projects\\bta_launcher\\source\\bta_launcher\\private\\downloadmanager.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\timar\\documents\\unreal projects\\bta_launcher\\intermediate\\build\\win64\\x64\\bta_launcher\\shipping\\engine\\sharedpch.engine.project.valapi.valexpapi.cpp20.inclorderunreal5_3.h.pch",
+        "Includes": [
+            "c:\\users\\timar\\documents\\unreal projects\\bta_launcher\\intermediate\\build\\win64\\x64\\unrealgame\\shipping\\bta_launcher\\definitions.bta_launcher.h",
+            "c:\\users\\timar\\documents\\unreal projects\\bta_launcher\\source\\bta_launcher\\public\\downloadmanager.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

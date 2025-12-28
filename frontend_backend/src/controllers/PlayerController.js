@@ -2,8 +2,18 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export const login = async (req, res) => {
-    const { username, epicAccountId } = req.body;
+    try 
+    {
+        const { username, epicAccountId } = req.body;
 
-    const allPlayers = await prisma.player.findMany();
-    console.log("All players:", allPlayers);
+        if (!username || !epicAccountId) 
+        {
+            return res.status(400).json({ error: "Missing username or epicAccountId" });
+        }
+    }
+    catch (error) 
+    {
+        console.error("Login error:", error);
+        res.status(500).json({ error: "Internal server error" });
+    }
 };

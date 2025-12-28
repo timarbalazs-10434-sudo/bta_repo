@@ -1,0 +1,14 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-BTA_Launcher.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:/Users/timar/Documents/Unreal Projects/BTA_Launcher/Intermediate/Build/Win64/x64/BTA_LauncherEditor/Development/UnrealEd/SharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.InclOrderUnreal5_3.h.obj"
+"C:/Users/timar/Documents/Unreal Projects/BTA_Launcher/Intermediate/Build/Win64/x64/UnrealEditor/Development/BTA_Launcher/BTA_Launcher.cpp.obj"
+"C:/Users/timar/Documents/Unreal Projects/BTA_Launcher/Intermediate/Build/Win64/x64/UnrealEditor/Development/BTA_Launcher/DownloadManager.cpp.obj"
+"C:/Users/timar/Documents/Unreal Projects/BTA_Launcher/Intermediate/Build/Win64/x64/UnrealEditor/Development/BTA_Launcher/PerModuleInline.gen.cpp.obj"
+"C:/Users/timar/Documents/Unreal Projects/BTA_Launcher/Intermediate/Build/Win64/x64/UnrealEditor/Development/BTA_Launcher/Default.rc2.res"
+/OUT:"C:/Users/timar/Documents/Unreal Projects/BTA_Launcher/Intermediate/Build/Win64/x64/UnrealEditor/Development/BTA_Launcher/UnrealEditor-BTA_Launcher.lib"

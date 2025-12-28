@@ -1,0 +1,14 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\timar\\documents\\unreal projects\\bta_launcher\\bta_launcher\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\bta_launcher\\permoduleinline.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\timar\\documents\\unreal projects\\bta_launcher\\bta_launcher\\intermediate\\build\\win64\\x64\\bta_launchereditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.valexpapi.cpp20.inclorderunreal5_3.h.pch",
+        "Includes": [
+            "c:\\users\\timar\\documents\\unreal projects\\bta_launcher\\bta_launcher\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\bta_launcher\\definitions.bta_launcher.h",
+            "f:\\ue_5.6\\engine\\source\\runtime\\core\\public\\hal\\permoduleinline.inl"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
