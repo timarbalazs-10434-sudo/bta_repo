@@ -66,6 +66,10 @@
 			"Name": "enhanced_string",
 			"Enabled": true,
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/6aef605265a44552a65a805199bee28c"
+		},
+		{
+			"Name": "VaRest",
+			"Enabled": true
 		}
 	]
 }

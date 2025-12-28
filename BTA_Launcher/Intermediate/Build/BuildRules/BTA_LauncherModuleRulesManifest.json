@@ -1,15 +1,8 @@
 {
 	"SourceFiles": [
-		"C:\\Users\\timar\\Documents\\Unreal Projects\\BTA_Launcher\\BTA_Launcher\\Source\\BTA_Launcher\\BTA_Launcher.Build.cs",
-		"C:\\Users\\timar\\Documents\\Unreal Projects\\BTA_Launcher\\BTA_Launcher\\Plugins\\EOSCoreEa09752defa59V15\\Source\\EOSCoreEditor\\EOSCoreEditor.Build.cs",
-		"C:\\Users\\timar\\Documents\\Unreal Projects\\BTA_Launcher\\BTA_Launcher\\Plugins\\EOSCoreEa09752defa59V15\\Source\\EOSCoreShared\\EOSCoreShared.Build.cs",
-		"C:\\Users\\timar\\Documents\\Unreal Projects\\BTA_Launcher\\BTA_Launcher\\Plugins\\EOSCoreEa09752defa59V15\\Source\\EOSCoreWeb\\EOSCoreWeb.Build.cs",
-		"C:\\Users\\timar\\Documents\\Unreal Projects\\BTA_Launcher\\BTA_Launcher\\Plugins\\EOSCoreEa09752defa59V15\\Source\\EOSCore\\EOSCore.Build.cs",
-		"C:\\Users\\timar\\Documents\\Unreal Projects\\BTA_Launcher\\BTA_Launcher\\Plugins\\EOSCoreEa09752defa59V15\\Source\\OnlineSubsystemEOSCore\\OnlineSubsystemEOSCore.Build.cs",
-		"C:\\Users\\timar\\Documents\\Unreal Projects\\BTA_Launcher\\BTA_Launcher\\Plugins\\EOSCoreEa09752defa59V15\\Source\\ThirdParty\\EOSLibrary\\EOSLibrary.Build.cs",
-		"C:\\Users\\timar\\Documents\\Unreal Projects\\BTA_Launcher\\BTA_Launcher\\Plugins\\RuntimeArchiver-main\\Source\\RuntimeArchiver\\RuntimeArchiver.Build.cs",
-		"C:\\Users\\timar\\Documents\\Unreal Projects\\BTA_Launcher\\BTA_Launcher\\Source\\BTA_Launcher.Target.cs",
-		"C:\\Users\\timar\\Documents\\Unreal Projects\\BTA_Launcher\\BTA_Launcher\\Source\\BTA_LauncherEditor.Target.cs"
+		"F:\\tempProjectDir\\trefort_bta\\bta_repo\\BTA_Launcher\\Source\\BTA_Launcher\\BTA_Launcher.Build.cs",
+		"F:\\tempProjectDir\\trefort_bta\\bta_repo\\BTA_Launcher\\Source\\BTA_Launcher.Target.cs",
+		"F:\\tempProjectDir\\trefort_bta\\bta_repo\\BTA_Launcher\\Source\\BTA_LauncherEditor.Target.cs"
 	],
 	"EngineVersion": "5.6.1"
 }

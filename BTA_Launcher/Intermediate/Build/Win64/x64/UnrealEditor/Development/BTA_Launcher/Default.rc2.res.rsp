@@ -86,5 +86,5 @@
 /DBUILD_ICON_FILE_NAME="\"..\\Build\\Windows\\Resources\\Default.ico\""
 /DPROJECT_COPYRIGHT_STRING="Fill out your copyright notice in the Description page of Project Settings."
 /DPROJECT_PRODUCT_IDENTIFIER=BTA_Launcher
-/fo "C:/Users/timar/Documents/Unreal Projects/BTA_Launcher/BTA_Launcher/Intermediate/Build/Win64/x64/UnrealEditor/Development/BTA_Launcher/Default.rc2.res"
+/fo "F:/tempProjectDir/trefort_bta/bta_repo/BTA_Launcher/Intermediate/Build/Win64/x64/UnrealEditor/Development/BTA_Launcher/Default.rc2.res"
 "../Build/Windows/Resources/Default.rc2"

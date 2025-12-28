@@ -10,6 +10,14 @@ export const login = async (req, res) => {
         {
             return res.status(400).json({ error: "Missing username or epicAccountId" });
         }
+
+        const player = await prisma.player.upsert({
+            where: { Epic_Account_Id: epicAccountId },
+            update: { username: username },
+            create: { username: username, Epic_Account_Id: epicAccountId },
+        });
+
+        res.status(200).json({"message": "Save was successful"}, player);
     }
     catch (error) 
     {

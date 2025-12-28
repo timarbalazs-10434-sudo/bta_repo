@@ -36,11 +36,11 @@
 /FUNCTIONPADMIN:6
 /NOIMPLIB
 /NOEXP
-"C:/Users/timar/Documents/Unreal Projects/BTA_Launcher/BTA_Launcher/Intermediate/Build/Win64/x64/BTA_LauncherEditor/Development/UnrealEd/SharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.InclOrderUnreal5_3.h.obj"
-"C:/Users/timar/Documents/Unreal Projects/BTA_Launcher/BTA_Launcher/Intermediate/Build/Win64/x64/UnrealEditor/Development/BTA_Launcher/BTA_Launcher.cpp.obj"
-"C:/Users/timar/Documents/Unreal Projects/BTA_Launcher/BTA_Launcher/Intermediate/Build/Win64/x64/UnrealEditor/Development/BTA_Launcher/DownloadManager.cpp.obj"
-"C:/Users/timar/Documents/Unreal Projects/BTA_Launcher/BTA_Launcher/Intermediate/Build/Win64/x64/UnrealEditor/Development/BTA_Launcher/PerModuleInline.gen.cpp.obj"
-"C:/Users/timar/Documents/Unreal Projects/BTA_Launcher/BTA_Launcher/Intermediate/Build/Win64/x64/UnrealEditor/Development/BTA_Launcher/Default.rc2.res"
+"F:/tempProjectDir/trefort_bta/bta_repo/BTA_Launcher/Intermediate/Build/Win64/x64/BTA_LauncherEditor/Development/UnrealEd/SharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.InclOrderUnreal5_3.h.obj"
+"F:/tempProjectDir/trefort_bta/bta_repo/BTA_Launcher/Intermediate/Build/Win64/x64/UnrealEditor/Development/BTA_Launcher/BTA_Launcher.cpp.obj"
+"F:/tempProjectDir/trefort_bta/bta_repo/BTA_Launcher/Intermediate/Build/Win64/x64/UnrealEditor/Development/BTA_Launcher/DownloadManager.cpp.obj"
+"F:/tempProjectDir/trefort_bta/bta_repo/BTA_Launcher/Intermediate/Build/Win64/x64/UnrealEditor/Development/BTA_Launcher/PerModuleInline.gen.cpp.obj"
+"F:/tempProjectDir/trefort_bta/bta_repo/BTA_Launcher/Intermediate/Build/Win64/x64/UnrealEditor/Development/BTA_Launcher/Default.rc2.res"
 "../Intermediate/Build/Win64/x64/UnrealEditor/Development/Core/UnrealEditor-Core.lib"
 "../Intermediate/Build/Win64/x64/UnrealEditor/Development/CoreUObject/UnrealEditor-CoreUObject.lib"
 "../Intermediate/Build/Win64/x64/UnrealEditor/Development/Engine/UnrealEditor-Engine.lib"
@@ -70,6 +70,6 @@
 "synchronization.lib"
 "dwmapi.lib"
 "imm32.lib"
-/OUT:"C:/Users/timar/Documents/Unreal Projects/BTA_Launcher/BTA_Launcher/Binaries/Win64/UnrealEditor-BTA_Launcher.dll"
-/PDB:"C:/Users/timar/Documents/Unreal Projects/BTA_Launcher/BTA_Launcher/Binaries/Win64/UnrealEditor-BTA_Launcher.pdb"
+/OUT:"F:/tempProjectDir/trefort_bta/bta_repo/BTA_Launcher/Binaries/Win64/UnrealEditor-BTA_Launcher.dll"
+/PDB:"F:/tempProjectDir/trefort_bta/bta_repo/BTA_Launcher/Binaries/Win64/UnrealEditor-BTA_Launcher.pdb"
 /ignore:4078

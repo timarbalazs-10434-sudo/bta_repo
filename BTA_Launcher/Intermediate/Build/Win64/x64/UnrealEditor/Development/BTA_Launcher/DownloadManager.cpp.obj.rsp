@@ -1,12 +1,12 @@
-"C:/Users/timar/Documents/Unreal Projects/BTA_Launcher/BTA_Launcher/Source/BTA_Launcher/Private/DownloadManager.cpp"
-@"C:/Users/timar/Documents/Unreal Projects/BTA_Launcher/BTA_Launcher/Intermediate/Build/Win64/x64/UnrealEditor/Development/BTA_Launcher/BTA_Launcher.Shared.rsp"
-/FI"C:/Users/timar/Documents/Unreal Projects/BTA_Launcher/BTA_Launcher/Intermediate/Build/Win64/x64/BTA_LauncherEditor/Development/UnrealEd/SharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.InclOrderUnreal5_3.h"
-/FI"C:/Users/timar/Documents/Unreal Projects/BTA_Launcher/BTA_Launcher/Intermediate/Build/Win64/x64/UnrealEditor/Development/BTA_Launcher/Definitions.BTA_Launcher.h"
-/Yu"C:/Users/timar/Documents/Unreal Projects/BTA_Launcher/BTA_Launcher/Intermediate/Build/Win64/x64/BTA_LauncherEditor/Development/UnrealEd/SharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.InclOrderUnreal5_3.h"
-/Fp"C:/Users/timar/Documents/Unreal Projects/BTA_Launcher/BTA_Launcher/Intermediate/Build/Win64/x64/BTA_LauncherEditor/Development/UnrealEd/SharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.InclOrderUnreal5_3.h.pch"
-/Fo"C:/Users/timar/Documents/Unreal Projects/BTA_Launcher/BTA_Launcher/Intermediate/Build/Win64/x64/UnrealEditor/Development/BTA_Launcher/DownloadManager.cpp.obj"
-/experimental:log "C:/Users/timar/Documents/Unreal Projects/BTA_Launcher/BTA_Launcher/Intermediate/Build/Win64/x64/UnrealEditor/Development/BTA_Launcher/DownloadManager.cpp.sarif"
-/sourceDependencies "C:/Users/timar/Documents/Unreal Projects/BTA_Launcher/BTA_Launcher/Intermediate/Build/Win64/x64/UnrealEditor/Development/BTA_Launcher/DownloadManager.cpp.dep.json"
+"F:/tempProjectDir/trefort_bta/bta_repo/BTA_Launcher/Source/BTA_Launcher/Private/DownloadManager.cpp"
+@"F:/tempProjectDir/trefort_bta/bta_repo/BTA_Launcher/Intermediate/Build/Win64/x64/UnrealEditor/Development/BTA_Launcher/BTA_Launcher.Shared.rsp"
+/FI"F:/tempProjectDir/trefort_bta/bta_repo/BTA_Launcher/Intermediate/Build/Win64/x64/BTA_LauncherEditor/Development/UnrealEd/SharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.InclOrderUnreal5_3.h"
+/FI"F:/tempProjectDir/trefort_bta/bta_repo/BTA_Launcher/Intermediate/Build/Win64/x64/UnrealEditor/Development/BTA_Launcher/Definitions.BTA_Launcher.h"
+/Yu"F:/tempProjectDir/trefort_bta/bta_repo/BTA_Launcher/Intermediate/Build/Win64/x64/BTA_LauncherEditor/Development/UnrealEd/SharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.InclOrderUnreal5_3.h"
+/Fp"F:/tempProjectDir/trefort_bta/bta_repo/BTA_Launcher/Intermediate/Build/Win64/x64/BTA_LauncherEditor/Development/UnrealEd/SharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.InclOrderUnreal5_3.h.pch"
+/Fo"F:/tempProjectDir/trefort_bta/bta_repo/BTA_Launcher/Intermediate/Build/Win64/x64/UnrealEditor/Development/BTA_Launcher/DownloadManager.cpp.obj"
+/experimental:log "F:/tempProjectDir/trefort_bta/bta_repo/BTA_Launcher/Intermediate/Build/Win64/x64/UnrealEditor/Development/BTA_Launcher/DownloadManager.cpp.sarif"
+/sourceDependencies "F:/tempProjectDir/trefort_bta/bta_repo/BTA_Launcher/Intermediate/Build/Win64/x64/UnrealEditor/Development/BTA_Launcher/DownloadManager.cpp.dep.json"
 /d2ssa-cfg-question-
 /Zc:inline
 /nologo
