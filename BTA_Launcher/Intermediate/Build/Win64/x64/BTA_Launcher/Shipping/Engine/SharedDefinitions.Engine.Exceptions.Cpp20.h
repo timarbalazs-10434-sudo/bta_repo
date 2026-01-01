@@ -60,7 +60,7 @@
 #define UBT_COMPILED_TARGET Game
 #define UE_APP_NAME "UnrealGame"
 #define UE_WARNINGS_AS_ERRORS 0
-#define UE_ENGINE_DIRECTORY "F:/UE_5.6/Engine/"
+#define UE_ENGINE_DIRECTORY "../../../../../../UE_5.6/Engine/"
 #define FORCE_ANSI_ALLOCATOR 0
 #define USE_MALLOC_BINNED2 1
 #define USE_MALLOC_BINNED3 0

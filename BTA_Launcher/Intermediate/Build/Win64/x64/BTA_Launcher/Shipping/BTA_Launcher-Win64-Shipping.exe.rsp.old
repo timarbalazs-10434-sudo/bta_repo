@@ -791,6 +791,7 @@
 "../Plugins/Marketplace/WindowsN5cda70022a73V9/Intermediate/Build/Win64/x64/UnrealGame/Shipping/DeviceFrameworkModule/Module.DeviceFrameworkModule.cpp.obj"
 "../Plugins/Marketplace/WindowsN5cda70022a73V9/Intermediate/Build/Win64/x64/UnrealGame/Shipping/FileIOUtilityModule/Module.FileIOUtilityModule.cpp.obj"
 "../Plugins/Marketplace/ExecCMDe3985d311885V8/Intermediate/Build/Win64/x64/UnrealGame/Shipping/DTCmd/Module.DTCmd.cpp.obj"
+"../Plugins/Marketplace/SelectFi2ae5320c1001V7/Intermediate/Build/Win64/x64/UnrealGame/Shipping/DTSelectFile/Module.DTSelectFile.cpp.obj"
 "../Intermediate/Build/Win64/x64/UnrealGame/Shipping/Navmesh/Module.Navmesh.1.cpp.obj"
 "../Intermediate/Build/Win64/x64/UnrealGame/Shipping/Navmesh/Module.Navmesh.2.cpp.obj"
 "../Intermediate/Build/Win64/x64/UnrealGame/Shipping/Navmesh/Module.Navmesh.3.cpp.obj"

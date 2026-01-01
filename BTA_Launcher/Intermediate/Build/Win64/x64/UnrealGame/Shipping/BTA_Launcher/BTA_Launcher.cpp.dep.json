@@ -1,12 +1,12 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "c:\\users\\timar\\documents\\unreal projects\\bta_launcher\\source\\bta_launcher\\bta_launcher.cpp",
+        "Source": "f:\\tempprojectdir\\trefort_bta\\bta_repo\\bta_launcher\\source\\bta_launcher\\bta_launcher.cpp",
         "ProvidedModule": "",
-        "PCH": "c:\\users\\timar\\documents\\unreal projects\\bta_launcher\\intermediate\\build\\win64\\x64\\bta_launcher\\shipping\\engine\\sharedpch.engine.project.valapi.valexpapi.cpp20.inclorderunreal5_3.h.pch",
+        "PCH": "f:\\tempprojectdir\\trefort_bta\\bta_repo\\bta_launcher\\intermediate\\build\\win64\\x64\\bta_launcher\\shipping\\engine\\sharedpch.engine.project.valapi.valexpapi.cpp20.inclorderunreal5_3.h.pch",
         "Includes": [
-            "c:\\users\\timar\\documents\\unreal projects\\bta_launcher\\intermediate\\build\\win64\\x64\\unrealgame\\shipping\\bta_launcher\\definitions.bta_launcher.h",
-            "c:\\users\\timar\\documents\\unreal projects\\bta_launcher\\source\\bta_launcher\\bta_launcher.h"
+            "f:\\tempprojectdir\\trefort_bta\\bta_repo\\bta_launcher\\intermediate\\build\\win64\\x64\\unrealgame\\shipping\\bta_launcher\\definitions.bta_launcher.h",
+            "f:\\tempprojectdir\\trefort_bta\\bta_repo\\bta_launcher\\source\\bta_launcher\\bta_launcher.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

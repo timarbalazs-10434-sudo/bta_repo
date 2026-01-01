@@ -7,10 +7,6 @@ import unreal
 #extract_to = ""
 #sevenzip = ""
 
-#zip_path = "{zip_path}".replace("\\", "/")
-#extract_to = "{extract_to}".replace("\\", "/")
-
-
 def unzip_split_zip(zip_path, extract_to, sevenzip):
     if not os.path.isfile(zip_path):
         print("ZIP not found:", zip_path)
