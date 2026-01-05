@@ -1,8 +1,0 @@
-{
-	"SourceFiles": [
-		"F:\\tempProjectDir\\trefort_bta\\bta_repo\\BTA_Launcher\\Source\\BTA_Launcher\\BTA_Launcher.Build.cs",
-		"F:\\tempProjectDir\\trefort_bta\\bta_repo\\BTA_Launcher\\Source\\BTA_Launcher.Target.cs",
-		"F:\\tempProjectDir\\trefort_bta\\bta_repo\\BTA_Launcher\\Source\\BTA_LauncherEditor.Target.cs"
-	],
-	"EngineVersion": "5.6.1"
-}
