@@ -1,34 +1,65 @@
-// Follow this setup guide to integrate the Deno language server with your editor:
-// https://deno.land/manual/getting_started/setup_your_environment
-// This enables autocomplete, go to definition, etc.
+const clientId = "xyza78914PS090fc0UvUYkrEMtOYpsY0";
+const clientSecret = "nOIoWeJYhuk7T5YznQjIlw/Tfio66GNl9PdcSdF7QvQ";
+const redirectUri = "http://localhost:4200/callback";
 
-// Setup type definitions for built-in Supabase Runtime APIs
-import "jsr:@supabase/functions-js/edge-runtime.d.ts"
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+};
 
 Deno.serve(async (req) => {
-  // Itt kérheted le a titkos kulcsokat, mert ez a szerveren van!
-  const clientId = Deno.env.get("EPIC_CLIENT_ID");
-  const clientSecret = Deno.env.get("EPIC_CLIENT_SECRET");
+  // CORS kezelés (maradjon benne!)
+  if (req.method === 'OPTIONS') {
+    return new Response('ok', { headers: corsHeaders });
+  }
 
-  // Itt fogadod az Angular-tól érkező "code"-ot
-  const { code } = await req.json();
+  try {
+    const { code } = await req.json();
 
-  // Itt fogsz majd feth-elni az Epic API-ra a tokennért (köv. lépés)
-  console.log("Kód megérkezett a backendre:", code);
+    // 1. LÉPÉS: Code kicserélése Tokenre
+    const tokenResponse = await fetch("https://api.epicgames.dev/epic/oauth/v1/token", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Authorization": `Basic ${btoa(`${clientId}:${clientSecret}`)}`,
+      },
+      body: new URLSearchParams({
+        grant_type: "authorization_code",
+        code: code,
+        redirect_uri: redirectUri,
+        scope: "basic_profile",
+      }),
+    });
 
-  return new Response(
-    JSON.stringify({ status: "Processing", receivedCode: code }),
-    { headers: { "Content-Type": "application/json" } }
-  );
+    const tokenData = await tokenResponse.json();
+
+    if (!tokenData.access_token) {
+      throw new Error("Nem sikerült access tokent szerezni az Epictől.");
+    }
+
+    // 2. LÉPÉS: Profiladatok lekérése a kapott tokennel
+    const userResponse = await fetch("https://api.epicgames.dev/epic/oauth/v1/userInfo", {
+      headers: {
+        "Authorization": `Bearer ${tokenData.access_token}`,
+      },
+    });
+
+    const userInfo = await userResponse.json();
+
+    // 3. VÁLASZ: Küldjük vissza a valódi adatokat az Angularnak
+    return new Response(
+      JSON.stringify({
+        username: userInfo.preferred_username,
+        epicAccountId: userInfo.sub
+      }),
+      { headers: { ...corsHeaders, "Content-Type": "application/json" } }
+    );
+
+  } catch (error) {
+    return new Response(
+      JSON.stringify({ error: error.message }),
+      { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+    );
+  }
 })
-/* To invoke locally:
-
-  1. Run `supabase start` (see: https://supabase.com/docs/reference/cli/supabase-start)
-  2. Make an HTTP request:
-
-  curl -i --location --request POST 'http://127.0.0.1:54321/functions/v1/epic-auth' \
-    --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0' \
-    --header 'Content-Type: application/json' \
-    --data '{"name":"Functions"}'
-
-*/
