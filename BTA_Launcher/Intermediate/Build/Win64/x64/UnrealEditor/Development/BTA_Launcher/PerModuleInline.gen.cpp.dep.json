@@ -1,0 +1,14 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "f:\\tempprojectdir\\trefort_bta\\bta_repo\\bta_launcher\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\bta_launcher\\permoduleinline.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "f:\\tempprojectdir\\trefort_bta\\bta_repo\\bta_launcher\\intermediate\\build\\win64\\x64\\bta_launchereditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.valexpapi.cpp20.inclorderunreal5_3.h.pch",
+        "Includes": [
+            "f:\\tempprojectdir\\trefort_bta\\bta_repo\\bta_launcher\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\bta_launcher\\definitions.bta_launcher.h",
+            "f:\\ue_5.6\\engine\\source\\runtime\\core\\public\\hal\\permoduleinline.inl"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
