@@ -43,10 +43,6 @@
 			"Enabled": false
 		},
 		{
-			"Name": "Bridge",
-			"Enabled": false
-		},
-		{
 			"Name": "DaySequence",
 			"Enabled": true
 		},
