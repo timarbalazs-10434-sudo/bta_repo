@@ -43,16 +43,17 @@
 			"Enabled": false
 		},
 		{
-			"Name": "Bridge",
-			"Enabled": false
-		},
-		{
 			"Name": "DaySequence",
 			"Enabled": true
 		},
 		{
 			"Name": "EOSShared",
 			"Enabled": true
+		},
+		{
+			"Name": "Chestory",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/346b0134920140aa9cc6caf427aa0801"
 		}
 	]
 }
