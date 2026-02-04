@@ -1,21 +1,36 @@
 nav{
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    flex-shrink: 1;
+    flex-grow: 1;
     border: 1px solid;
     align-items: center;
 
     height: 50px;
     margin-bottom: 30px;
+    
+    /*Scroll megoldás, hogy felül maradjon, a position más oldalakon elbassza - STACK OVERFLOW Code:*/
+    z-index: 10000;
+    position: fixed;
+    top: 0px;
+    width: 100%;
 }
 
 #left{
     display: flex;
     justify-content: flex-start;
+    flex-shrink: 1;
+    flex-grow: 1;
+    flex-wrap: wrap;
 }
 
 #right{
     display: flex;
     justify-content: flex-end;
+    flex-shrink: 1;
+    flex-grow: 1;
+    flex-wrap: wrap;
 }
 
 nav a, button{

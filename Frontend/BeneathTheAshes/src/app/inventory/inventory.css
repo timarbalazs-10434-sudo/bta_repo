@@ -1,0 +1,17 @@
+table{
+    margin-top: 60px; /*Navbar miatt kell*/
+    width: 100%;
+    border: 2px solid white;
+    border-collapse: collapse;
+}
+th{
+    border-bottom: 2px solid white;
+    border-right: 1px solid white;
+}
+td{
+    border-right: 1px solid white;
+    text-align: center;
+}
+th,td{
+    background-color: black;
+}

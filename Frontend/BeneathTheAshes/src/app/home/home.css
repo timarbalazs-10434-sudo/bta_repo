@@ -37,6 +37,10 @@ video{
   color: white;
   text-align: center;
   padding: 20px;
+  background-color: black;
 }
-
+h1{
+  font-size: xx-large;
+  background: none;
+}
 

@@ -17,5 +17,13 @@ export const routes: Routes = [
                 (m) => m.Download
             )
         }
+    },
+    {
+        path: 'inventory',
+        loadComponent: () =>{
+            return import('./inventory/inventory').then(
+                (m) => m.Inventory 
+            )
+        }
     }
 ];
