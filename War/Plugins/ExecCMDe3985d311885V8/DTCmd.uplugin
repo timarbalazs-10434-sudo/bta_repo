@@ -1,0 +1,26 @@
+{
+	"FileVersion": 3,
+	"Version": 0,
+	"VersionName": "1.3",
+	"FriendlyName": "DTCmd",
+	"Description": "Exec CMD / UE5.5",
+	"Category": "DT",
+	"CreatedBy": "Dexter Wan",
+	"CreatedByURL": "45141961@qq.com",
+	"DocsURL": "https://www.fab.com/listings/3d4eb444-c9ab-452d-b02d-21797115fa19",
+	"MarketplaceURL": "",
+	"SupportURL": "https://dt.cq.cn/",
+	"EngineVersion": "5.6.0",
+	"CanContainContent": true,
+	"Installed": true,
+	"Modules": [
+		{
+			"Name": "DTCmd",
+			"Type": "Runtime",
+			"LoadingPhase": "PostConfigInit",
+			"PlatformAllowList": [
+				"Win64"
+			]
+		}
+	]
+}
