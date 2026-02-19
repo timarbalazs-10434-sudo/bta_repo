@@ -1,0 +1,40 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "3.6.1",
+	"FriendlyName": "Chestory Inventory",
+	"Description": "Inventory and Crafting system with multiplayer support",
+	"Category": "Gameplay",
+	"CreatedBy": "Arkai Interactive",
+	"CreatedByURL": "http://xn--arka-8pa.fr",
+	"DocsURL": "https://docs.google.com/document/d/1Z3kDU59QzHyoiA3IqYfE0hRmVu_dDKU0DiHJDZacKcI/edit?usp=sharing",
+	"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/346b0134920140aa9cc6caf427aa0801",
+	"SupportURL": "mailto:support@arkai.fr",
+	"EngineVersion": "5.7.0",
+	"CanContainContent": true,
+	"Installed": true,
+	"Modules": [
+		{
+			"Name": "Chestory",
+			"Type": "Runtime",
+			"LoadingPhase": "PreLoadingScreen",
+			"PlatformAllowList": [
+				"Win64"
+			]
+		},
+		{
+			"Name": "ChestoryEditor",
+			"Type": "Editor",
+			"LoadingPhase": "PostEngineInit",
+			"PlatformAllowList": [
+				"Win64"
+			]
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "EnhancedInput",
+			"Enabled": true
+		}
+	]
+}
