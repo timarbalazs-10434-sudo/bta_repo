@@ -1,0 +1,93 @@
+Log started at 02/28/2026 20:26:56 (2026-02-28T19:26:56Z)
+Resolved project argument F:/tempProjectDir/trefort_bta/bta_repo/BTA_Launcher/BTA_Launcher.uproject to F:\tempProjectDir\trefort_bta\bta_repo\BTA_Launcher\BTA_Launcher.uproject
+No config file at C:\ProgramData\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+No config file at C:\Users\timar\AppData\Local\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+No config file at C:\Users\timar\Documents\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+Configuration will be read from:
+  C:\Users\timar\AppData\Roaming\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+Reading configuration file from: C:\Users\timar\AppData\Roaming\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+Reading configuration file from: F:\tempProjectDir\trefort_bta\bta_repo\BTA_Launcher\Saved\UnrealBuildTool\BuildConfiguration.xml
+Reading configuration file from: C:\Users\timar\AppData\Local\UnrealEngine\Intermediate\Build\UnrealBuildTool.Env.BuildConfiguration.xml
+Log file: F:\tempProjectDir\trefort_bta\bta_repo\BTA_Launcher\Saved\Logs\UnrealVersionSelector-2026.02.28-20.26.55.log
+
+Setting temp directory to 'C:\Users\timar\AppData\Local\Temp\UnrealBuildTool\8c4c1eb4'
+    Registering build platform: UnrealBuildTool.AndroidPlatformFactory
+    Registering build platform: UnrealBuildTool.IOSPlatformFactory
+    Registering build platform: UnrealBuildTool.LinuxPlatformFactory
+    Registering build platform: UnrealBuildTool.MacPlatformFactory
+    Registering build platform: UnrealBuildTool.TVOSPlatformFactory
+    Registering build platform: UnrealBuildTool.WindowsPlatformFactory
+Found Windows 10 SDK root at C:\Program Files (x86)\Windows Kits\10 (1)
+Found Windows 10 SDK root at C:\Program Files (x86)\Windows Kits\10 (2)
+Found Windows 10 SDK version 10.0.19041.0 at C:\Program Files (x86)\Windows Kits\10
+Found Universal CRT version 10.0.19041.0 at C:\Program Files (x86)\Windows Kits\10
+Found Windows 10 SDK version 10.0.26100.0 at C:\Program Files (x86)\Windows Kits\10
+Found Universal CRT version 10.0.26100.0 at C:\Program Files (x86)\Windows Kits\10
+Win64 Installed SDK(s): MinVersion_Sdk=10.0.19041.0, MaxVersion_Sdk=10.9.99999.0, CurrentVersion_Sdk=10.0.26100.0, Version_AutoSdk=10.0.22621.0, CurrentVersion_AutoSdk=
+        Registering build platform: Win64 - buildable: True
+    Registering build platform: UnrealBuildTool.VisionOSPlatformFactory
+Resolved project argument F:/tempProjectDir/trefort_bta/bta_repo/BTA_Launcher/BTA_Launcher.uproject to F:\tempProjectDir\trefort_bta\bta_repo\BTA_Launcher\BTA_Launcher.uproject
+Reading configuration file from cache (F:\tempProjectDir\trefort_bta\bta_repo\BTA_Launcher\Intermediate\Build\XmlConfigCache.bin): C:\Users\timar\AppData\Roaming\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+Reading configuration file from cache (F:\tempProjectDir\trefort_bta\bta_repo\BTA_Launcher\Intermediate\Build\XmlConfigCache.bin): F:\tempProjectDir\trefort_bta\bta_repo\BTA_Launcher\Saved\UnrealBuildTool\BuildConfiguration.xml
+Reading configuration file from cache (F:\tempProjectDir\trefort_bta\bta_repo\BTA_Launcher\Intermediate\Build\XmlConfigCache.bin): C:\Users\timar\AppData\Local\UnrealEngine\Intermediate\Build\UnrealBuildTool.Env.BuildConfiguration.xml
+Registering project generator UnrealBuildTool.AndroidProjectGenerator for Android
+Skipping project file generator registration for Android due to no valid BuildPlatform.
+Registering project generator UnrealBuildTool.IOSProjectGenerator for IOS
+Skipping project file generator registration for IOS due to no valid BuildPlatform.
+Registering project generator UnrealBuildTool.LinuxProjectGenerator for Linux
+Skipping project file generator registration for Linux due to no valid BuildPlatform.
+Registering project generator UnrealBuildTool.LinuxProjectGenerator for LinuxArm64
+Skipping project file generator registration for LinuxArm64 due to no valid BuildPlatform.
+Registering project generator UnrealBuildTool.MacProjectGenerator for Mac
+Skipping project file generator registration for Mac due to no valid BuildPlatform.
+Registering project generator UnrealBuildTool.TVOSProjectGenerator for TVOS
+Skipping project file generator registration for TVOS due to no valid BuildPlatform.
+Registering project generator UnrealBuildTool.WindowsProjectGenerator for Win64
+Registering project generator UnrealBuildTool.VisionOSProjectGenerator for VisionOS
+Skipping project file generator registration for VisionOS due to no valid BuildPlatform.
+
+---   SDK INFO START   ---
+---   SDK INFO END   ---
+
+
+Generating VisualStudio project files:
+Discovering modules, targets and source code for project...
+Found VisualStudio2022 installation: C:\Program Files\Microsoft Visual Studio\18\Enterprise (Product=Microsoft.VisualStudio.Product.Enterprise, Version=18.3.11505.172)
+Found VisualStudioUnsupported installation: C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools (Product=Microsoft.VisualStudio.Product.BuildTools, Version=16.11.36227.6)
+Found Visual Studio toolchain: C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Tools\MSVC\14.29.30133 (Family=14.29.30133, FamilyRank=1, Version=14.29.30159, HostArchitecture=x64, ReleaseChannel=Latest, Architecture=x64, Error=True, Redist=C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Redist\MSVC\14.29.30133)
+Found Visual Studio toolchain: C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Tools\MSVC\14.44.35207 (Family=14.44.35207, FamilyRank=1, Version=14.44.35222, HostArchitecture=x64, ReleaseChannel=Latest, Architecture=x64, Error=False, Redist=C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Redist\MSVC\14.50.35710)
+Found Visual Studio toolchain: C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Tools\MSVC\14.50.35717 (Family=14.50.35717, FamilyRank=1, Version=14.50.35724, HostArchitecture=x64, ReleaseChannel=Latest, Architecture=x64, Error=False, Redist=C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Redist\MSVC\14.50.35710)
+Detected supported platforms: Win64
+Adding projects for all targets...
+Skipping F:\UE_5.6\Engine\Intermediate\Build\BuildRules\UE5Rules.dll: File is installed
+Skipping F:\UE_5.6\Engine\Intermediate\Build\BuildRules\UE5ProgramRules.dll: File is installed
+Compiling F:\tempProjectDir\trefort_bta\bta_repo\BTA_Launcher\Intermediate\Build\BuildRules\BTA_LauncherModuleRules.dll: UnrealBuildTool.dll is newer
+F:\tempProjectDir\trefort_bta\bta_repo\BTA_Launcher\Source\BTA_Launcher.Target.cs(11,47): error CS0117: 'BuildSettingsVersion' does not contain a definition for 'V6'
+F:\tempProjectDir\trefort_bta\bta_repo\BTA_Launcher\Source\BTA_LauncherEditor.Target.cs(11,47): error CS0117: 'BuildSettingsVersion' does not contain a definition for 'V6'
+Adding projects for all targets took 6.35s
+Expecting to find a type to be declared in a target rules named 'BTA_LauncherTarget'.  This type must derive from the 'TargetRules' type defined by UnrealBuildTool.
+CompilationResultException: Expecting to find a type to be declared in a target rules named 'BTA_LauncherTarget'.  This type must derive from the 'TargetRules' type defined by UnrealBuildTool.
+   at UnrealBuildTool.RulesAssembly.CreateTargetRules(String TargetName, UnrealTargetPlatform Platform, UnrealTargetConfiguration Configuration, UnrealArchitectures Architectures, FileReference ProjectFile, CommandLineArguments Arguments, ILogger Logger, Boolean IsTestTarget, TargetRulesValidationOptions ValidationOptions, UnrealIntermediateEnvironment IntermediateEnvironment)
+   at UnrealBuildTool.ProjectFileGenerator.AddProjectsForAllTargets(PlatformProjectGeneratorCollection PlatformProjectGenerators, List`1 AllGames, List`1 AllTargetFiles, String[] Arguments, List`1 EngineProjects, List`1 GameProjects, Dictionary`2 ProjectFileToUProjectFile, Dictionary`2 ProgramProjects, Dictionary`2 RulesAssemblies, ILogger Logger)
+   at UnrealBuildTool.ProjectFileGenerator.GenerateProjectFiles(PlatformProjectGeneratorCollection PlatformProjectGenerators, String[] Arguments, ILogger Logger)
+   at UnrealBuildTool.ProjectFileGenerator.GenerateProjectFiles(PlatformProjectGeneratorCollection PlatformProjectGenerators, String[] Arguments, Boolean bCacheDataForEditor, ILogger Logger)
+   at UnrealBuildTool.GenerateProjectFilesMode.ExecuteAsync(CommandLineArguments Arguments, ILogger Logger)
+   at UnrealBuildTool.UnrealBuildTool.Main(String[] ArgumentsArray)
+WriteFileIfChanged() wrote 2 changed files of 4 requested writes.
+
+Timeline:
+[  0.022]  +1.995 Main
+   0.022          [  0.000]  +1.022 <unknown>
+   1.045          [  1.022]  +0.533 Apply XmlConfig
+   1.579          [  1.556]  +0.281 <unknown>
+   1.860          [  1.838]  +0.156 RegisterPlatforms
+[  2.017]  +6.913 GenerateProjectFilesMode
+   2.017          [  0.000]  +0.363 <unknown>
+   2.381          [  0.363]  +6.550 Generating VisualStudio project files
+   2.509             0.491          [  0.128]  +0.066 DiscoverTargets
+   2.578             0.561          [  0.197]  +6.352 Adding projects for all targets
+[  9.014]  +0.000 TelemetryService.FlushEvents
+[  9.015]
+
+Result: Failed (RulesError)
+Total execution time: 9.02 seconds

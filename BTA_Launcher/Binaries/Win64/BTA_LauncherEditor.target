@@ -3178,18 +3178,6 @@
 			"Type": "RequiredResource"
 		},
 		{
-			"Path": "$(EngineDir)/Plugins/Marketplace/DasZipPl6d5ee359ce8aV6/Binaries/Win64/UnrealEditor-DasZipPlugin.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/Marketplace/DasZipPl6d5ee359ce8aV6/Binaries/Win64/UnrealEditor-DasZipPlugin.pdb",
-			"Type": "SymbolFile"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/Marketplace/DasZipPl6d5ee359ce8aV6/Binaries/Win64/UnrealEditor.modules",
-			"Type": "RequiredResource"
-		},
-		{
 			"Path": "$(EngineDir)/Plugins/Marketplace/EOSCoreEa09752defa59V15/Binaries/Win64/UnrealEditor-EOSCore.dll",
 			"Type": "DynamicLibrary"
 		},
@@ -3307,6 +3295,14 @@
 		},
 		{
 			"Path": "$(EngineDir)/Plugins/Marketplace/WindowsN5cda70022a73V9/Binaries/Win64/UnrealEditor-DeviceFrameworkModule.pdb",
+			"Type": "SymbolFile"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Marketplace/WindowsN5cda70022a73V9/Binaries/Win64/UnrealEditor-EditorOnly.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Marketplace/WindowsN5cda70022a73V9/Binaries/Win64/UnrealEditor-EditorOnly.pdb",
 			"Type": "SymbolFile"
 		},
 		{
@@ -5532,126 +5528,6 @@
 			"Type": "NonUFS"
 		},
 		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/__pycache__/_compression.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/__pycache__/_weakrefset.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/__pycache__/ast.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/__pycache__/bz2.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/__pycache__/contextlib.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/__pycache__/copyreg.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/__pycache__/dis.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/__pycache__/enum.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/__pycache__/fnmatch.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/__pycache__/functools.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/__pycache__/inspect.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/__pycache__/ipaddress.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/__pycache__/keyword.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/__pycache__/linecache.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/__pycache__/locale.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/__pycache__/lzma.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/__pycache__/opcode.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/__pycache__/operator.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/__pycache__/pathlib.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/__pycache__/reprlib.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/__pycache__/shutil.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/__pycache__/signal.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/__pycache__/struct.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/__pycache__/subprocess.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/__pycache__/threading.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/__pycache__/token.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/__pycache__/tokenize.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/__pycache__/types.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/__pycache__/warnings.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/__pycache__/zipfile.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
 			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/_aix_support.py",
 			"Type": "NonUFS"
 		},
@@ -5921,14 +5797,6 @@
 		},
 		{
 			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/collections/__init__.py",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/collections/__pycache__/__init__.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/collections/__pycache__/abc.cpython-311.pyc",
 			"Type": "NonUFS"
 		},
 		{
@@ -6813,26 +6681,6 @@
 		},
 		{
 			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/encodings/__init__.py",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/encodings/__pycache__/__init__.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/encodings/__pycache__/aliases.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/encodings/__pycache__/cp1250.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/encodings/__pycache__/cp437.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/encodings/__pycache__/utf_8.cpython-311.pyc",
 			"Type": "NonUFS"
 		},
 		{
@@ -8088,14 +7936,6 @@
 			"Type": "NonUFS"
 		},
 		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/importlib/__pycache__/__init__.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/importlib/__pycache__/_abc.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
 			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/importlib/_abc.py",
 			"Type": "NonUFS"
 		},
@@ -8916,26 +8756,6 @@
 			"Type": "NonUFS"
 		},
 		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/re/__pycache__/__init__.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/re/__pycache__/_casefix.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/re/__pycache__/_compiler.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/re/__pycache__/_constants.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/re/__pycache__/_parser.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
 			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/re/_casefix.py",
 			"Type": "NonUFS"
 		},
@@ -8997,10 +8817,6 @@
 		},
 		{
 			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/site-packages/_distutils_hack/__init__.py",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/site-packages/_distutils_hack/__pycache__/__init__.cpython-311.pyc",
 			"Type": "NonUFS"
 		},
 		{
@@ -18121,14 +17937,6 @@
 		},
 		{
 			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/urllib/__init__.py",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/urllib/__pycache__/__init__.cpython-311.pyc",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/ThirdParty/Python3/Win64/Lib/urllib/__pycache__/parse.cpython-311.pyc",
 			"Type": "NonUFS"
 		},
 		{
@@ -28552,10 +28360,6 @@
 			"Type": "UFS"
 		},
 		{
-			"Path": "$(EngineDir)/Plugins/Marketplace/DasZipPl6d5ee359ce8aV6/DasZipPlugin.uplugin",
-			"Type": "UFS"
-		},
-		{
 			"Path": "$(EngineDir)/Plugins/Marketplace/EOSCoreEa09752defa59V15/EOSCore.uplugin",
 			"Type": "UFS"
 		},
@@ -29720,7 +29524,6 @@
 		"CustomMeshComponent",
 		"DTCmd",
 		"DTSelectFile",
-		"DasZipPlugin",
 		"DataValidation",
 		"Dataflow",
 		"DatasmithContent",
