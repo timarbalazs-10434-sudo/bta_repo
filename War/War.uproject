@@ -47,11 +47,6 @@
 			"Enabled": true
 		},
 		{
-			"Name": "Chestory",
-			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/346b0134920140aa9cc6caf427aa0801"
-		},
-		{
 			"Name": "Bridge",
 			"Enabled": false
 		}
