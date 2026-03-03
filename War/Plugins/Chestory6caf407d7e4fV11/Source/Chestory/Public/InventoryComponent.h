@@ -1,0 +1,643 @@
+// Copyright 2024 Arkai Interactive. All Rights Reserved.
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "Components/ActorComponent.h"
+#include "InventoryPluginStruct.h"
+#include "InventorySubsystem.h"
+#include "Interface/ChestorySaveGameInterface.h"
+#include "InventoryComponent.generated.h"
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FContainerIsOpen,FName,GridKey);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FContainerIsClose, FName, GridKey);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnItemEnterInventory,FPrimaryAssetId,PrimaryAssetId,int32,Amount);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnItemLeaveInventory, FPrimaryAssetId, PrimaryAssetId, int32, Amount);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnItemUpdate, int32, Slot);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnItemClear, int32, Slot);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnWeightChanged, float, TotalWeight, float, MaxWeight);
+
+
+UCLASS(ClassGroup = (Inventory), Blueprintable, meta = (BlueprintSpawnableComponent))
+class CHESTORY_API UInventoryComponent : public UActorComponent, public IChestorySaveGameInterface
+{
+	GENERATED_BODY()
+
+public:	
+	// Sets default values for this component's properties
+	UInventoryComponent();
+
+	UInventoryComponent(const FObjectInitializer& ObjectInitializer);
+
+protected:
+	// Called when the game starts
+	virtual void BeginPlay() override;
+	virtual void OnComponentDestroyed(bool bDestroyingHierarchy);
+
+public:	
+	virtual void OnComponentCreated();
+
+	// Called every frame
+	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+
+//Inteface
+	UFUNCTION()
+	void OnObjectPreLoad_Implementation();
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	void OnObjectPostLoad_Implementation();
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	void OnObjectPreSave_Implementation();
+
+	//Trigger  befor ActorInWorld destory
+	UFUNCTION()
+	void OnObjectPreDestoryed_Implementation();
+
+// Liste Item in container Inventory
+public:
+
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category = "Data Inventory")
+	TArray<FItemData> Inventory;
+
+	/*
+	* Found and Add Decay slot on MDecaySlots
+	*/
+	void TryToFoundDecaySlot();
+
+	TMap<int32,bool> MDecaySlots;
+
+	void StartDecayTimer();
+	
+	UPROPERTY(BlueprintAssignable, BlueprintAuthorityOnly, Category = "Container|Event")
+	FContainerIsOpen OnContainerIsOpen;
+
+	UPROPERTY(BlueprintAssignable, BlueprintAuthorityOnly, Category = "Container|Event")
+	FContainerIsClose OnContainerIsClose;
+
+	UPROPERTY(BlueprintAssignable, Category = "Container|Event")
+	FOnItemEnterInventory OnItemEnterInventory;
+
+	UPROPERTY(BlueprintAssignable, Category = "Container|Event")
+	FOnItemLeaveInventory OnItemLeaveInventory;
+
+	UPROPERTY(BlueprintAssignable, Category = "Container|Event")
+	FOnItemUpdate OnItemUpdate;
+
+	UPROPERTY(BlueprintAssignable, Category = "Container|Event")
+	FOnItemClear OnItemClear;
+
+	UFUNCTION()
+	void NotifyScript_InventoryOpen(FName OnGridKey);
+	UFUNCTION()
+	void NotifyScript_InventoryClose(FName OnGridKey);
+
+
+	//OLD need to Delet
+	TArray<class UInventoryManagerComponent*> ListInventoryManagerViewers;
+
+	// InvenotryManager and GridKey for viewers
+	TMap<class UInventoryManagerComponent*,FName> Viewers;
+
+	void AddViewer(UInventoryManagerComponent* InventoryManager, FName OnGridKey);
+	void RemoveViewer(UInventoryManagerComponent* InventoryManager);
+
+	/*
+	* TMap Viewers InventoryManager / GridKey used
+	*/
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Inventory")
+	TMap<class UInventoryManagerComponent*, FName> GetViewers() { return Viewers; }
+
+	bool HasViwers() { return !Viewers.IsEmpty(); }
+	/*
+	* Return the grid used by the Instance InventoryManager
+	*/
+	FName GetGridFromInventoryManager(UInventoryManagerComponent* InventoryManager);
+
+	UFUNCTION()
+	void OnInventoryUpdate(FPrimaryAssetId PrimaryAssetId, int32 Amount);
+
+	// ------------------------ CONTAINER SYSTEM ------------------------
+public: 
+
+	/*
+	* Server Genereate a New Id for this InventoryComponent
+	* and Call OnRep_InventoryID for replicated the new Id
+	*/
+	UFUNCTION(Server, Reliable)
+	void Server_GenerateId();
+
+	UFUNCTION(Server, Reliable)
+	void Server_SetId(FGuid Id);
+
+	UFUNCTION(Server, Reliable)
+	void Server_UpdateId();
+
+	UFUNCTION(NetMulticast, Reliable)
+	void Multicast_UpdateId(FGuid Id);
+
+
+	UPROPERTY(ReplicatedUsing = OnRep_InventoryID, BlueprintReadOnly, SaveGame, Category = "Container")
+	FGuid InventoryID;
+
+	UFUNCTION()
+	virtual void OnRep_InventoryID();
+
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Inventory")
+	FGuid GetId();
+
+	UPROPERTY(Replicated, SaveGame)
+	FGuid CraftingIdLinked;
+
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Inventory")
+	FGuid GetCraftingIdLinked() { return CraftingIdLinked; }
+
+	/*
+	* Allows to know if it has been generated by an InventoryManager
+	* TODO Hide this Param
+	*/
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Container")
+	bool bIsContainer = true;
+
+	//If not equal to None, use this class to create widget slot on container inventory
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Container")
+	TSubclassOf<UInventorySlotUserWidget> OverrideInventoryWidgetSlot;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Container")
+	FName GridKey = "DefaultGrid";
+
+	/*
+	* Name of the Inventory
+	*/
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Container")
+	FName NameContainer;
+
+	/*
+	* Number of slots created
+	*/
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Container")
+	int32 ContainerSize = 40;
+
+	/*
+	* Number of slots maximum per row created
+	*/
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Container")
+	int32 ContainerSlotsPerRow = 5;
+
+	/*
+	* Using size Item system for this inventory
+	*/
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Container")
+	bool EnableSizeItem = true;
+
+	/*
+	* If true, all items will be added in sequence. 
+	* Not recommended for use with item size system
+	*/
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Container")
+	bool EnableAutoFill = false;
+
+	/*
+	* EnableAutoFill need to be True value
+	* Automatically adjusts the number of available slots so that there are always empty slots.
+	* The "ContainerSize" value will be the minimum number of slots available
+	*/
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category = "Container", meta = (EditCondition = "EnableAutoFill"))
+	bool EnableDynamicSizeInventory = false;
+
+	/*
+	* The minimum number of rows that will always be available
+	*/
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category = "Container", meta = (EditCondition = "EnableDynamicSizeInventory"))
+	int32 ContainerMiniRow = 2;
+
+	
+	/*
+	* If true the player will not be able to deposit items in this inventory, he can only take items
+	*/
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category = "Container")
+	bool EnableLootContainer = false;
+
+	// You can repair object in this inventory
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite, SaveGame, Category = "Container", meta = (DisplayName = "Enable Repair"))
+	bool bCanRepair = true;
+
+	/*
+	* Location Relative
+	*/
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Container", Meta = (MakeEditWidget = true))
+	FVector DroppedLocation = FVector(0, 0, 0);
+
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Deprecated", meta = (EditCondition = "bIsContainer", DeprecatedProperty, DeprecationMessage="Now use other Param in Component"))
+	FContainerSetting ContainerSetting;
+
+	// ------------------------ DECAY SYSTEM ------------------------	
+#pragma region /** Decay */
+
+	UPROPERTY(Replicated,EditAnywhere, BlueprintReadWrite, SaveGame, Category = "Container|Decay")
+	float DecayFactor = 1.0f;
+	
+	UPROPERTY(Replicated,EditAnywhere, BlueprintReadWrite, SaveGame, Category = "Container|Decay")
+	float DecayTickTime = 1.0f;
+
+	UPROPERTY(Replicated, SaveGame)
+	float DefaultDecayFactor = -1;
+
+
+
+	/*
+	* Apply default value to DecayFactor
+	*/
+	UFUNCTION(Server, Reliable, BlueprintCallable, Category = "Inventory")
+	void ResetDecayFactor();
+
+	/*
+	* Apply a new Decay Factor for fast/ slow Decay
+	*/
+	UFUNCTION(Server, Reliable, BlueprintCallable, Category = "Inventory")
+	void SetDecayFactor(float NewDecayFactor);
+
+	/*
+	* Decay tick on item can be decay
+	*/
+	FTimerHandle DecayTimer;
+	void DecayTick();
+
+#pragma endregion
+
+
+	// ------------------------ WEIGHT SYSTEM ------------------------	
+#pragma region /** Weight */
+
+	/*
+	* Active Weight System
+	*/
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, Category = "Container|Weight")
+	bool EnableWeight = false;
+
+	/*
+	* if Total Weight is > MaxWeight can't add item
+	*/
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, Category = "Container|Weight", meta = (EditCondition = "EnableWeight"))
+	bool EnableWeightRestriction = true;
+
+	/*
+	* Maximum weight avaiable of this InventoryManager
+	*/
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, Category = "Container|Weight", meta = (EditCondition = "EnableWeight", ClampMin = "0.0", UIMin = "0.0"))
+	float MaxWeight = 300.f;
+
+	/*
+	* Factor apply on Total Weight
+	* x = GetTotalWeight(), y = Factor
+	* x * y = New TotalWeight
+	*/
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, Category = "Container|Weight", meta = (EditCondition = "EnableWeight", ClampMin = "0.01", UIMin = "0.01"))
+	float WeightFactor = 1.f;
+
+	UPROPERTY(ReplicatedUsing = OnRep_CurrentWeight, BlueprintReadOnly, SaveGame, Category = "Inventory|Weight")
+	float CurrentWeight = 0.f;
+
+	UFUNCTION()
+	virtual void OnRep_CurrentWeight();
+
+	UFUNCTION(NetMulticast, Reliable)
+	void Multicast_UpdateWeightValue(float NewTotalWeight);
+
+	float GetCurrentWeightValue() { return CurrentWeight; };
+
+	UPROPERTY(BlueprintAssignable, Category = "Container|Event")
+	FOnWeightChanged OnWeightChanged;
+
+	UFUNCTION(Server, Reliable, BlueprintCallable, Category = "Inventory|Weight")
+	void SetMaxWeight(float NewMaxWeight);
+
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Inventory|Weight")
+	float GetMaxWeight();
+
+	UFUNCTION(Server, Reliable, BlueprintCallable, Category = "Inventory|Weight")
+	void SetWeightFactor(float NewWeightFactor);
+
+	UFUNCTION(Server, Reliable)
+	void SetTotalWeight(float NewTotalWeight);
+
+
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Inventory|Weight")
+	float GetInventoryWeight();
+
+	float GetWeightAvaiable() { return GetMaxWeight() - GetInventoryWeight(); };
+
+	void IncreaseWeight(float Amount);
+	void DecreaseWeight(float Amount);
+	void RefreshWeight();
+
+
+
+	UFUNCTION()
+	void OnIncreaseWeight(FPrimaryAssetId PrimaryAssetId, int32 Amount);
+
+	UFUNCTION()
+	void OnDecreaseWeight(FPrimaryAssetId PrimaryAssetId, int32 Amount);
+
+
+
+#pragma endregion
+
+
+
+
+	// ------------------------ RESTRICTION SYSTEM ------------------------	
+#pragma region /** Restriction */	
+
+	//Only items with this tag are allowed
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Container|Restriction")
+	FGameplayTagQuery Restriction;
+	
+	//List Items possible to transfer in this inventory
+	UPROPERTY(Replicated,EditAnywhere, BlueprintReadWrite,Category = "Container|Restriction",meta =( AllowedTypes = "ItemDataAsset"))
+	TArray<FPrimaryAssetId> RestrictionPossibleItems;
+
+	//List Items possible to transfer in this inventory
+	UPROPERTY(Replicated,EditAnywhere, BlueprintReadWrite, Category = "Container|Restriction", meta = (AllowedTypes = "ItemDataAsset"))
+	TArray<FPrimaryAssetId> RestrictionImpossibleItems;
+	
+	/*
+	* Check restriction for the Item on this Inventory
+	* If IndexSlot notequal -1 then check RestrictionSlot, use for EquipmentInventory or HotbarInventory
+	*/
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	bool CheckItemInRestriction(FItemData Item, int32 IndexSlot = -1);
+
+
+	/*
+	* Check space of this slot with the size item
+	*/
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	bool HaveSapceInSlot(FItemData Item, int32 FromSlot, int32 ToCheckedSlot, bool ForSwap = false);
+
+#pragma endregion
+
+
+
+	/*
+	* Return Array Colmun Row of size item
+	*/
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	TArray<FIntPoint> GetPointsFromItemSlot(FItemData Item, int32 Slot);
+
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	TArray<int32> GetFilledIndexFromItemSlot(FItemData Item, int32 Slot);
+	
+public: 
+
+	// ---------------------- Init Component ---------------------- 
+
+	UInventorySubsystem* InventorySubsystem;
+	void InitializeSubsystem();
+
+
+	UPROPERTY(BlueprintReadWrite, Category = "Container",meta = (ExposeOnSpawn = true))
+	FInventoryDefinition SpawnDefinition;
+
+
+	/*
+	* Used by InventoryManager from Player Inventories
+	*/
+	void ApplyInventoryDefinition(FInventoryDefinition Definition);
+
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	void K2_ApplyInventoryDefinition(FInventoryDefinition Definition) { ApplyInventoryDefinition(Definition); };
+
+	/*
+	* Used by InventoryManager for apply a new InventoryManager for this instance
+	*/
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	void SetOwnerInventoryManager(UInventoryManagerComponent* Owner);
+
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	void ClearOwnerInventoryManager();
+
+	/*
+	* Return Owner InventoryManager or GameMode InventoryManager
+	*/
+	UInventoryManagerComponent* GetInventoryManager();
+
+	AActor* GetOwnerForLocation();
+
+	// ---------------------- SAVE AND LOAD ---------------------- 
+
+	UFUNCTION()
+	void ReconstructitemsFromSave();
+	
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Inventory|SaveAndLoad")
+	FItemForSave GetItemsForSave();
+
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Inventory|SaveAndLoad")
+	FInventorySaved GetInventorySave();
+
+	UFUNCTION(BlueprintCallable, Category = "Inventory|SaveAndLoad")
+	void LoadInventoryFromSave(FInventorySaved InventorySave);
+
+	/*
+	* Return Array of all inventory manager look at in this storage
+	*/
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Inventory")
+	TArray<class UInventoryManagerComponent*> GetInventoryManagerViewers() { TArray<class UInventoryManagerComponent*>OutKey; GetViewers().GetKeys(OutKey); return OutKey; };
+
+	// Get inventory for server
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Inventory")
+	TArray<FItemData> GetInventoryItems() { return Inventory; };
+
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Inventory")
+	bool GetItemIsValid(FItemData Item);
+
+	// Initialize Inventory
+	bool InitializeInventory(int32 InventorySize);
+
+	// Server Initialize Inventory 
+	UFUNCTION(BlueprintAuthorityOnly,Server, Reliable,BlueprintCallable, Category = "Inventory")
+	void Server_InitializeInventory(int32 InventorySize = -1);
+
+	// Get Inventory item from slot index
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Inventory")
+	UPARAM(DisplayName = "InventoryItem")	FItemData GetInventoryItem(int32 InventorySlot);
+
+	FItemData& GetItemByRef(int32 InventorySlot);
+
+	// Set Inventory item from slot index
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	UPARAM(DisplayName = "Success")	bool SetInventoryItem(int32 InventorySlot, FItemData InventoryItem,TArray<int32>& Filled);
+
+	// Clear Inventory item from slot index
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	void ClearInventoryItem(int32 InventorySlot,TArray<int32>& Unfilled);
+
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Inventory")
+	int32 FindInventoryItem(bool& Success, FName ItemId);
+
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	void ClearInventory();
+
+	// return first slot empty in inventory 
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	void GetEmptyInventorySpace(bool& Success, int32& IndexSlot,FItemData ForItem = FItemData());
+
+	// return amount slot empty in inventory 
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	int32 GetAmountEmptyInventorySpace();
+
+	UFUNCTION(BlueprintCallable,BlueprintPure, Category = "Inventory")
+	bool IsEmptyInventory();
+
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Inventory")
+	bool IsFull();
+
+
+	// Get number of item in inventory
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	UPARAM(DisplayName = "ItemCount")	int32 GetInventoryItemCount();
+
+	// Adds new amount slot in inventory 
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	void IncreaseInventorySize(int32 Amount);
+
+	// Remove slot in inventory begin End 
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	UPARAM(DisplayName = "Success")	bool DecreaseInventorySize(int32 Amount);
+
+	//Resize the inventory 
+	void AutoInventorySize();
+
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	bool CanBeDecremented(int32 Amount);
+
+
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	void LoadInventoryItems(int32 InventorySize, TArray<FItemData> InventoryItems);
+	
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Inventory")
+	FContainerSetting GetContainerSetting();
+
+	/*
+	* Convert ItemsData to ItemsTransfer for
+	* server send to client
+	*/
+	TArray<FItemDataInfoCompressed> GetDataForTransfer();
+
+	// ------------------------ TYPE  ------------------------
+	/*
+	* Change the Inventory Type
+	*  - Inventory if owner by the player
+	*  - Container if is a inventory on the world
+	*  - Equipment don't use
+	*  - Hotbar don't use
+	*/
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	void SetInventoryType(ESlotType Type) { InventoryType = Type; }
+
+	/*
+	* return the Type of inventory
+	*/
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Inventory")
+	ESlotType GetInventoryType() { return InventoryType; }
+
+	/*
+	* Return true if it is an Equipment inventory type
+	*/
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Inventory")
+	bool GetIsEquipmentInventory() {return InventoryType == ESlotType::EEquipement;	}
+	
+	/*
+	* Return true if it is an Hotbar inventory type
+	*/
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Inventory")
+	bool GetIsHotbarInventory() {return InventoryType == ESlotType::EHotBar;}
+
+	/*
+	* Return true if it is an Container inventory type
+	*/
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Inventory")
+	bool GetIsContainerInventory() { return InventoryType == ESlotType::EContainer; }
+	
+	/*
+	* Return true if it is an Player inventory type
+	*/
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Inventory")
+	bool GetIsPlayerInventory() { return InventoryType == ESlotType::EInventory; }
+
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Inventory")
+	bool GetIsGirdInventory() { return GetIsPlayerInventory() || GetIsContainerInventory(); }
+
+
+
+	// ------------------------ SLOT SYSTEM ------------------------
+
+	/*
+	* Array of the SlotKey 
+	* The index of the key corresponds to the index of the item in the inventory
+	*/
+	UPROPERTY(Replicated, SaveGame)
+	TArray<FName> SlotsIndexKey;
+
+	/*
+	* return the Slot Key at this Index
+	*/
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Inventory")
+	FName GetKeyAtIndex(int32 Index) { return SlotsIndexKey[Index]; }
+	
+	/*
+	* Return the Index at this Slot Key
+	*/
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Inventory")
+	int32 GetIndexAtKey(FName Key);
+
+	/*
+	* Variable for the use of the Slot restriction system 
+	* This is only available for the equipment and the t Hotbar
+	*/
+	UPROPERTY()
+	TMap<FName, FGameplayTagQuery> SlotsRestriction;
+
+	/*
+	* Use the restriction for try to found Index that corresponds to the Slot
+	*/
+	void FindIndexFromRestriction(FGameplayTagContainer CheckRestriction, bool& Success, int32& Index);
+
+	// ------------------------ FILTER SYSTEM ------------------------
+private:	
+
+	bool bUseFilter;
+	FGameplayTagContainer CurrentTagsApply;
+
+	void ResetDecaySlots();
+
+	UPROPERTY(Replicated, SaveGame)
+	ESlotType InventoryType = ESlotType::EContainer;
+
+public:
+
+
+
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	void SetUseFilter(bool UseFilter){bUseFilter = UseFilter;};
+	UFUNCTION(BlueprintCallable,BlueprintPure, Category = "Inventory")
+	bool GetUseFilter(){return bUseFilter;};
+	
+	// Set visibility ItemData depending on the tag
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	void ApplyNewFilter(FGameplayTagContainer Tags);
+
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	void DisableFilter();
+
+	UFUNCTION(BlueprintCallable,BlueprintPure, Category = "Inventory")
+	FGameplayTagContainer GetFilterTags(){return CurrentTagsApply;};
+
+
+	
+private:
+	UInventoryManagerComponent* OwnerInventoryManager = nullptr;
+	// Add tag on onwer Actor 'HasInventory' 
+	void AutoAddTag();
+};
+
