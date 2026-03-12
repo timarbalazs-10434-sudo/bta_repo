@@ -20,11 +20,6 @@
 			"Enabled": true
 		},
 		{
-			"Name": "EOSCore",
-			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/af157f773f084ca89036cd7bc03fb416"
-		},
-		{
 			"Name": "MetaHumanSDK",
 			"Enabled": false
 		},
@@ -32,11 +27,6 @@
 			"Name": "SimpleInventorySystem",
 			"Enabled": false,
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/69276853b46e4f11931b80d22a9e82dd"
-		},
-		{
-			"Name": "Windows_Native_Toolkit",
-			"Enabled": true,
-			"MarketplaceURL": "https://www.fab.com/listings/db1cb6ed-ac7e-4408-a901-e45d6694cb0b"
 		},
 		{
 			"Name": "Fab",
