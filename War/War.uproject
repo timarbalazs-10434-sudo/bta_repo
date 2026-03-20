@@ -39,6 +39,20 @@
 		{
 			"Name": "Bridge",
 			"Enabled": false
+		},
+		{
+			"Name": "EOSCore",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/af157f773f084ca89036cd7bc03fb416"
+		},
+		{
+			"Name": "Chestory",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/346b0134920140aa9cc6caf427aa0801"
+		},
+		{
+			"Name": "AIAssistant",
+			"Enabled": true
 		}
 	]
 }
