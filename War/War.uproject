@@ -43,24 +43,6 @@
 		{
 			"Name": "AIAssistant",
 			"Enabled": true
-		},
-		{
-			"Name": "EOSCore",
-			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/af157f773f084ca89036cd7bc03fb416"
-		},
-		{
-			"Name": "Chestory",
-			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/346b0134920140aa9cc6caf427aa0801"
-		},
-		{
-			"Name": "VC_Tonemapper_Toolkit",
-			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/Fab/product/29a328ed-3413-41ea-8f46-308cddc19f87",
-			"SupportedTargetPlatforms": [
-				"Win64"
-			]
 		}
 	]
 }
