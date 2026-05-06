@@ -1,0 +1,103 @@
+<section class="flex flex-col justify-center w-full h-full items-center">
+    <button class="collapse lg:visible bg-gray-500 hover:bg-white text-white hover:text-black font-bold py-2 px-4 rounded  transition-all duration-800"><a href="https://www.dropbox.com/scl/fi/e4ic49qzzpxy4b5wxuqhx/INSTALLER-BTA_Launcher.exe?rlkey=100r3xuqhkakne6rqc7msnx6t&st=5hsuymov&dl=1" target="_self">Download</a></button>
+    <h1 class="pt-30 pb-10 font-black">
+        Requirements:
+    </h1>
+    <div class="flex flex-col p-20 gap-20 sm:flex-row sm:justify-between sm:w-full sm:gap-30">
+        <div class="flex flex-col gap-[20px]">
+            <h2 class="font-semibold">Minimum:</h2>
+            <ul class="list-disc">
+                <li>
+                    CPU: Intel® Core™ i3-12100F Processor / AMD Ryzen 3 5300G
+                </li>
+                <li>
+                    GPU: NVIDIA GTX 1650 (4GB GDDR6/GDDR5) / AMD RX 580
+                </li>
+                <li>
+                    RAM: 8 GB RAM
+                </li>
+                <li>
+                    OS: Windows 10 64 Bit
+                </li>
+                <li>
+                    Storage: 3 GB available space
+                </li>
+            </ul>
+        </div>
+        <div class="flex flex-col gap-[20px]">
+            <h2 class="font-semibold">Reccomended:</h2>
+            <ul class="list-disc">
+                <li>
+                    CPU: Intel Core i7-13700K / AMD Ryzen 7 7800X3D 8-Core 4.2GHz
+                </li>
+                <li>
+                    GPU: The GeForce RTX 3060 Ti / AMD Radeon RX 6700 XT
+                </li>
+                <li>
+                    RAM: 16 GB RAM
+                </li>
+                <li>
+                    OS: Windows 10 64 Bit
+                </li>
+                <li>
+                    Storage: 3 GB available space
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="flex flex-col xl:flex-row gap-40">
+        <div class="flex flex-col gap-10">
+            <h1>Cpu:</h1>
+            <select id="processor">
+                <optgroup class="bg-black"  label="Choose a manufacturer:">
+                <option class="bg-black" value="none">None</option>
+                <option class="bg-black" value="intel">Intel</option>
+                <option class="bg-black" value="amd">AMD</option>
+            </select>
+            <select id="amdProcessor">
+                <optgroup class="bg-black" label="Choose a processor:"></optgroup>
+                <option class="bg-black" value="none">None</option>
+                <option class="bg-black" value="">AMD Phenom 9850 Quad-Core Processor (4 CPUs) @ 2.5GHz</option>
+            </select>
+            <select id="intelProcessor">
+                <optgroup class="bg-black" label="Choose a processor:"></optgroup>
+                <option class="bg-black" value="">None</option>
+                <option class="bg-black" value="">Intel Core 2 Quad CPU Q6600 @ 2.40GHz (4 CPUs)</option>
+            </select>
+        </div>
+        <div class="flex flex-col gap-10">
+            <h1>Gpu:</h1>
+            <select id="gpu">
+                <optgroup class="bg-black" label="Choose a manufacturer:"></optgroup>
+                <option class="bg-black" value="">None</option>
+                <option class="bg-black" value="intel">NVIDIA</option>
+                <option class="bg-black" value="amd">AMD</option>
+            </select>
+            <select id="nvidiaGpu">
+                <optgroup class="bg-black" label="Choose a gpu:"></optgroup>
+                <option class="bg-black" value="">None</option>
+                <option class="bg-black" value="">NVIDIA 9800 GT 1GB</option>
+            </select>
+            <select id="amdGpu">
+                <optgroup class="bg-black" label="Choose a gpu:"></optgroup>
+                <option class="bg-black" value="">None</option>
+                <option class="bg-black" value="">AMD HD 4870 1GB (DX 10, 10.1, 11)</option>
+            </select>
+        </div>
+        <div class="flex flex-col gap-10">
+            <h1>Ram:</h1>
+            <select id="processor">
+                <optgroup class="bg-black" label="Choose a manufacturer:"></optgroup>
+                <option class="bg-black" value="">None</option>
+                <option class="bg-black" value="">2GB</option>
+                <option class="bg-black" value="">4GB</option>
+                <option class="bg-black" value="">6GB</option>
+                <option class="bg-black" value="">8GB</option>
+                <option class="bg-black" value="">12GB</option>
+                <option class="bg-black" value="">16GB</option>
+                <option class="bg-black" value="">32GB</option>
+            </select>
+        </div>
+    </div>
+</section>
+

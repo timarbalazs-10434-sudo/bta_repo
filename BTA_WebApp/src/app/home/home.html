@@ -1,0 +1,41 @@
+<section class="flex flex-col">
+    <div class="mt-4 mb-4 self-center text-center w-[80%]">
+        <h1 (click)="asd()" class="bg-cover text-black px-5 py-5 bg-[url(/menu_icons/RE7UIButton.jpg)] w-[100%] text-3xl sm:text-5xl md:text-8xl">Beneath The Ashes</h1>
+        <video lang="en" class="w-[100%] h-[100%]"  [muted]="'muted'" [controls]="false" [preload]="'preload'" autoplay loop id="background-video" [disablePictureInPicture]="true" src="https://www.youtube.com/watch?v=JoXpUZqJa7U"> <!--MD és más screen responsive megoldása-->
+        </video>
+    </div>
+    <div class="mt-4 mb-4 self-center text-center  w-[80%]">
+        <h1 lang="en" class="bg-cover text-black px-5 py-5 bg-[url(/menu_icons/RE7UIButton.jpg)] text-2xl md:text-3xl">Info</h1>
+        <p class="px-5 text-left">A <b>Beneath The Ashes</b> a játék, amelyet a <b>GameDevInspired</b> csapat készített a projektvizsgára. 
+            A <a  (click)="sajttortaOpen()" target="_self" class="hover:cursor-default">játék</a> maga a háborús borzalmakat próbálja minimalista módon átadni. 
+            Persze az elkészült fázis még bőven a <b>korai verziót</b> éli. 
+            Ez egy komolyabb verzióban akár be is mutathatná teljes mértékben ezeket az érzelmeket átadó dolgokat. 
+            Illetve kiegészülhetne story résszel, azaz singleplayer játékmóddal. <b>FPS</b>(First Person Shooter) játék<b>,</b> <b>TPS</b>(Third Person Shooter) lehetőség <b>nincs</b>.  
+        </p>
+    </div>
+    <div class="mt-4 mb-4 self-center text-center  w-[80%]">
+        <h1 class="bg-cover text-black px-5 py-5 bg-[url(/menu_icons/RE7UIButton.jpg)] text-2xl md:text-3xl">About</h1>
+        <p class="px-5 text-left">
+            A csapatot alkotó tagok: <b>Tímár Balázs, Ilyés Csaba, Furák Szabolcs</b>. 
+            Azaz mi vagyunk a játék kitalálói, ötletelői, készítői, illetve fejlesztői.
+            Nem állítjuk, hogy az évszázad projektje, de ennek ellenére megvan a beleölt munka minden téren.
+
+        </p>
+    </div>
+    <div class="mt-4 mb-4 self-center text-center  w-[80%]">
+        <h1 class="bg-cover text-black px-5 py-5 bg-[url(/menu_icons/RE7UIButton.jpg)] text-2xl md:text-3xl">Inspired By</h1>
+        <p class="px-5 text-left">
+            A játékot inspiráció ihlette, a <b>This War Of Mine</b>, amely Liquid Engine-ben készült. 
+            Hasonlóságok találhatóak a mi projektünkben összevetve a This War Of Mine-al, ez köszönhető a tematikának.
+            Alapvetőleg az inspirációt szolgáltató játék 2D(2Dimensional), a miénk 3D(3Dimensional).
+        </p>
+    </div>
+    <div class="mt-4 mb-4 self-center text-center  w-[80%]">
+        <h1 class="bg-cover text-black px-5 py-5 bg-[url(/menu_icons/RE7UIButton.jpg)] text-2xl md:text-3xl">Introduction of systems</h1>
+        <p class="px-5 text-left">
+            Több különböző dolog található a játékban, ezzel is elősegítve az élmény átadást. Fegyver system helyet kapott, minimális realisztikussági alapon. 
+            Stamina a fáradtsághoz, ne a maratont fustd le. Természetesen inventory system, valahol tárolni kell elvégre a dolgokat, ez playerenként elkülönül. 
+
+        </p>
+    </div>
+</section>

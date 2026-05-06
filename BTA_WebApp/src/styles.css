@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "tailwindcss";
+
+@font-face {
+  font-family: helveticaNeue; /* Name of the font */
+  src: url(/font/HelveticaNeueThin.otf); /* Url for the font */
+}
+
+html body{
+    margin: 0;
+    padding: 0;
+    background-color: #1D1F21;
+    color: white;
+    font-family: helveticaNeue;
+    font-size: 16px;
+    /*font-size: 28px; Ez a globális font size majd
+    https://scopedesign.com/website-font-size-guide-2025-ux-typography-best-practices/
+    Az oldal alapján kell*/
+    
+}
+@media (width >= 48rem) {
+    html body{
+        font-size: 20px;
+    }
+}
+
