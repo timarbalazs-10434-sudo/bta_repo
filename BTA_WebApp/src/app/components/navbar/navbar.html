@@ -1,0 +1,37 @@
+
+    <nav lang="en" class="flex justify-center items-center gap-[20%] bg-black w-full h-[66px]">
+        <button class="sm:hidden" (click)="onMenuClick()">
+            <img class="h-[50%] w-[30px]" src="{{menuimage}}" alt="Menu">
+        </button>
+        <!--Nav:-->
+        <div class="hidden sm:flex justify-center items-center gap-[20%] md:gap-[30%] lg:gap-[40%] xl:gap-[60%]">
+            <!--<button (click)="asd123()">TEST</button>-->
+            <a class="transition-all duration-300 text-center h-[33px]" routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Home</a>
+            <a class="transition-all duration-300 text-center h-[33px]" routerLink="/download" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Download</a>
+            <a class="transition-all duration-300 text-center h-[33px] " routerLink="/inventory" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Inventory</a>
+            <button class="transition-all duration-900 h-[66px] btn_login bg-black text-white border-b-2 border-white-600 px-4 py-2">
+                <div class="flex" (click)="loginEpicGames()">
+                    <img lang="en" src="/menu_icons/EpicGames_logo_48.png" alt="EpicGames"/>
+                    <div class="h-[100%]  py-2 pl-5 pr-15">
+                        login
+                    </div>
+                </div>
+            </button>
+        </div>
+    </nav>
+<!--Mobile Nav:-->
+<div lang="en" class="animate-[rotateY-45] sm:hidden transition ease-out duration-100 transform opacity-100 scale-100 {{hiddenMenu}} w-full h-[206px] bg-gray-800 text-center flex flex-col items-center"> <!--Gap eltüntetés amennyiben visible az inv page, ellenkezőleg gap-[10%]-->
+    <a class=" w-[90px] align-center text-white transition-all duration-100  py-2" routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Home</a> <!--border-b-4 border-indigo-500 : active link-->
+    <a class=" w-[90px] text-white transition-all duration-100 py-2" routerLink="/download" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Download</a>
+    <a class=" w-[90px] align-center text-white transition-all duration-100 py-2 " routerLink="/inventory" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Inventory</a>
+    <button  class="btn_login w-[100px] h-[50px] align-center bg-black text-white border-b-2 border-white-600 my-4"> 
+        <div class="flex">
+            <img src="/menu_icons/EpicGames_logo.png" alt="EpicGames"/>
+            <div class=" w-[50%]">
+                <a>
+                    login
+                </a>
+            </div>
+        </div>
+    </button>
+</div>

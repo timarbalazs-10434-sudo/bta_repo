@@ -1,0 +1,45 @@
+.btn_login{
+    /*Flex elemek:*/
+    /*Design:*/
+    
+    
+    background-color: #1D1F21;
+    color: white;
+    border: #1D1F21;
+    border: 0.1px solid white;
+}
+
+.btn_login:hover{
+    background-size: cover;
+    background-image: url("/menu_icons/RE7UIButton.jpg");
+    background-repeat: no-repeat;
+    background-position: 100%;
+    color:#1D1F21;
+    border: none;
+}
+
+.btn_login:active{
+    background-color: white;
+    background-image: none;
+}
+
+a.active-link{
+    border-bottom: 4px solid gainsboro;
+}
+a{
+    font-weight: bold;
+}
+button{
+    font-weight: bold;
+}
+
+.window__container {
+        display: block;
+        position: absolute;
+        right: 102px;
+        top: 100px;
+        min-width: 360px;
+        height: 528px;
+        z-index: 10000;
+        background: red;
+}
